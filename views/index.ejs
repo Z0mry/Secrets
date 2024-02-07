@@ -1,0 +1,35 @@
+<!-- home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+
+    <div class="jumbotron text-center">
+        <!-- Display the user's post if available -->
+        <% if (userPost) { %>
+            <p>Your latest post:</p>
+            <p><%= userPost %></p>
+        <% } else { %>
+            <p>You haven't posted anything yet. Share something!</p>
+        <% } %>
+
+        <!-- Form for submitting a new post -->
+        <form action="/submit" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control text-center" name="secret" placeholder="What's your post?" required>
+            </div>
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+
+        <!-- Add a logout link or button -->
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>
